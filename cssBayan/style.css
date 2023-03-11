@@ -1,0 +1,46 @@
+h1,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  margin: 0 auto;
+  width: 50%;
+}
+.logo {
+  font-size: 2rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid grey;
+}
+.accordion {
+  /* border-bottom: 2px solid grey; */
+}
+.accordion-title {
+  cursor: pointer;
+  display: block;
+}
+.accordion-input {
+  appearance: none;
+}
+.accordion-item {
+  border-bottom: 2px solid grey;
+  padding: 1rem 0;
+}
+.accordion-img {
+  width: 0%;
+  height: 0%;
+  transition: all 0.8s;
+  display: block;
+  margin: 0 auto;
+}
+.accordion-input:checked + .accordion-img {
+  width: 30%;
+  height: 30%;
+  /* transition: all 0.5s; */
+}
+.accordion-input:hover ~ .accordion-img {
+  width: 30%;
+  height: 30%;
+}
