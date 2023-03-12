@@ -4,6 +4,9 @@ div {
   margin: 0;
   padding: 0;
 }
+body {
+  color: aqua;
+}
 
 .page-container {
   margin: 0 auto;
@@ -14,33 +17,115 @@ div {
   padding: 1rem 0;
   border-bottom: 2px solid grey;
 }
-.accordion {
-  /* border-bottom: 2px solid grey; */
+
+.accordion-item {
+  border-bottom: 2px solid grey;
+  /* padding: 1rem 0; */
+  cursor: pointer;
 }
+
 .accordion-title {
   cursor: pointer;
   display: block;
+  padding: 1rem 0;
 }
 .accordion-input {
   appearance: none;
 }
-.accordion-item {
-  border-bottom: 2px solid grey;
-  padding: 1rem 0;
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
 }
+
+/* .accordion:hover, */
+.accordion-input:checked ~ .accordion-header {
+  color: black;
+}
+
+.accordion-input {
+  appearance: none;
+}
+.accordion-icon {
+  width: 1rem;
+  height: 1rem;
+  background: url('./plus-solid.svg') center no-repeat;
+  opacity: 0;
+}
+
 .accordion-img {
   width: 0%;
   height: 0%;
-  transition: all 0.8s;
+  transition: all 0.3s;
   display: block;
   margin: 0 auto;
 }
-.accordion-input:checked + .accordion-img {
-  width: 30%;
-  height: 30%;
-  /* transition: all 0.5s; */
+.accordion-input:checked ~ div .accordion-icon {
+  opacity: 1;
 }
-.accordion-input:hover ~ .accordion-img {
+.accordion-input:checked ~ .accordion-img {
   width: 30%;
   height: 30%;
 }
+.accordion-item:hover .accordion-icon,
+.accordion-input:checked ~ div .accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* Click */
+.accordion-item:active .accordion-img {
+  opacity: 0.3;
+}
+
+.accordion-item:active .accordion-header {
+  color: red;
+}
+
+.accordion-item:active .accordion-icon {
+  background: url('./plus-red.svg') center no-repeat;
+}
+
+/* media queries */
+
+@media (min-width: 320px) {
+  html {
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 700px) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 920px) {
+  html {
+    font-size: 1.5rem;
+  }
+  .accordion-item:hover .accordion-img {
+    width: 30%;
+    height: 30%;
+  }
+  .accordion:hover {
+    color: black;
+  }
+  .page-container:hover .accordion-icon {
+    opacity: 1;
+  }
+}
+
+/* .accordion-input:checked ~ .accordion-img,
+.accordion-item:hover .accordion-img {
+  width: 30%;
+  height: 30%;
+} */
+
+/* .accordion:hover,
+.accordion-input:checked ~ .accordion-header {
+  color: black;
+} */
+
+/* .page-container:hover .accordion-icon {
+  opacity: 1;
+} */
